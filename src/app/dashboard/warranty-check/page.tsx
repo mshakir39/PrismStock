@@ -181,8 +181,8 @@ export default function WarrantyCheckPage() {
                         warranty codes separated by comma or space
                       </p>
                       <p>
-                        <strong className='text-custom'>Examples:</strong> "ABC123, DEF456" or
-                        "ABC123 DEF456" or "1646603376 1291636542"
+                        <strong className='text-custom'>Examples:</strong> &quot;ABC123, DEF456&quot; or
+                        &quot;ABC123 DEF456&quot; or &quot;1646603376 1291636542&quot;
                       </p>
                       <p className='text-custom'><strong>Format:</strong> The warranty code format looks like: XXX-XXXXXXX</p>
                       <p className='mt-3 p-3 bg-custom/10 rounded text-custom font-medium'>

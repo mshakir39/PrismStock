@@ -34,7 +34,7 @@ const ResetPasswordModal: React.FC<ResetPasswordModalProps> = ({ isOpen, selecte
             label=""
             value={resetPassword}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setResetPassword(e.target.value)}
-            placeholder="Enter new password"
+            placeholder={`Enter ${selectedUser.name}&apos;s new password`}
             required
           />
         </div>

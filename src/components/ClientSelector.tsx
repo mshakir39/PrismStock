@@ -16,11 +16,6 @@ export default function ClientSelector() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  // Only show for super admin users
-  if (user?.role !== 'super_admin') {
-    return null;
-  }
-
   // Fetch clients on component mount
   useEffect(() => {
     const fetchClients = async () => {

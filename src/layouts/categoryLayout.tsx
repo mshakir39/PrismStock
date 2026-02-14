@@ -716,7 +716,7 @@ const CategoryLayoutRefactored: React.FC<CategoryLayoutProps> = ({
       />
 
       {/* Delete Battery Modal */}
-      <DeleteModal
+      <DeleteCategoryModal
         isOpen={isDeleteModalOpen}
         isLoading={isLoading}
         deleteItem={deleteItem}
