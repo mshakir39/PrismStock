@@ -190,20 +190,103 @@ npm run format       # Code formatting
 
 ## 🎯 Business Use Cases
 
-### Battery Retailers
-- Battery inventory management with specifications
-- Warranty tracking and verification
-- Customer purchase history
+### Battery Retailers & Distributors
+- **Battery Inventory Management**: Comprehensive battery catalog with specifications (AH, plate, series)
+- **Warranty Tracking & Verification**: Real-time warranty code validation and history management
+- **Customer Purchase History**: Complete battery purchase tracking for warranty claims
+- **Multi-Location Inventory**: Centralized battery stock management across multiple stores
+- **Seasonal Demand Planning**: Battery sales analytics for seasonal business cycles
 
 ### Automotive Parts Stores
-- Multi-category inventory management
-- Sales analytics and reporting
-- Customer relationship management
+- **Multi-Category Inventory**: Parts categorization by vehicle make, model, and year
+- **Sales Analytics**: Parts sales trends and customer vehicle patterns
+- **Customer Relationship Management**: Vehicle-specific purchase histories
+- **Supplier Management**: Parts procurement and vendor relationship tracking
+- **Cross-Selling Opportunities**: Related parts recommendations based on purchase patterns
 
-### Multi-Location Businesses
-- Centralized inventory across locations
-- Role-based access for different stores
-- Consolidated reporting and analytics
+### Electronics & Hardware Retailers
+- **Component Inventory**: Electronic components with specifications and compatibility data
+- **Serial Number Tracking**: Individual item tracking for high-value electronics
+- **Supplier Chain Management**: Multiple supplier relationships and pricing tiers
+- **Technical Specifications**: Detailed product specs for customer inquiries
+- **Return & Exchange Management**: Product return tracking and analysis
+
+### Industrial Equipment Suppliers
+- **Heavy Equipment Parts**: Large-scale inventory with specialized tracking
+- **Maintenance Contracts**: Service contract management and scheduling
+- **B2B Customer Management**: Industrial client relationship tracking
+- **Equipment History**: Complete maintenance and parts replacement records
+- **Fleet Management**: Multiple customer equipment inventory tracking
+
+### Medical & Laboratory Supplies
+- **Regulatory Compliance**: FDA and medical supply tracking requirements
+- **Expiration Date Management**: Perishable medical supply inventory tracking
+- **Batch Number Tracking**: Complete lot tracking for medical supplies
+- **Client Compliance Records**: Medical facility compliance documentation
+- **Reorder Automation**: Automated reordering based on usage patterns
+
+### Construction & Building Materials
+- **Project-Based Inventory**: Track materials by construction project
+- **Supplier Management**: Multiple vendor relationships and pricing
+- **Waste & Loss Tracking**: Material waste analysis and optimization
+- **Equipment Rental**: Tool and equipment rental management
+- **Seasonal Planning**: Construction season inventory optimization
+
+### Agriculture & Farming Supplies
+- **Seasonal Inventory**: Seed, fertilizer, and equipment seasonal tracking
+- **Crop-Specific Supplies**: Inventory management by crop type and season
+- **Equipment Maintenance**: Farm equipment service and parts tracking
+- **Supplier Contracts**: Agricultural supplier relationship management
+- **Weather-Based Planning**: Inventory planning based on seasonal patterns
+
+### Wholesale Distribution Centers
+- **Multi-Channel Distribution**: B2B and B2C inventory management
+- **Warehouse Optimization**: Space utilization and picking efficiency
+- **Transportation Logistics**: Shipping and delivery tracking
+- **Customer Tier Management**: Different pricing and service levels
+- **Bulk Inventory Management**: Large-scale inventory optimization
+
+### Retail Chain Management
+- **Multi-Store Inventory**: Centralized inventory across multiple locations
+- **Transfer Management**: Stock transfers between store locations
+- **Regional Pricing**: Location-specific pricing and promotions
+- **Staff Management**: Role-based access for different store levels
+- **Consolidated Reporting**: Chain-wide analytics and performance metrics
+
+### E-commerce Integration
+- **Online Store Sync**: Inventory synchronization with e-commerce platforms
+- **Order Fulfillment**: Pick, pack, and ship workflow management
+- **Customer Service**: Order tracking and customer inquiry management
+- **Returns Processing**: E-commerce return and refund management
+- **Multi-Channel Sales**: Integration with multiple online marketplaces
+
+### Service & Repair Shops
+- **Parts Inventory**: Repair parts and consumables tracking
+- **Service History**: Complete customer service and repair records
+- **Technician Management**: Staff scheduling and performance tracking
+- **Customer Appointments**: Service booking and scheduling system
+- **Warranty Claims**: Manufacturer warranty processing and tracking
+
+### Manufacturing & Production
+- **Raw Materials**: Component and raw material inventory tracking
+- **Production Planning**: Materials requirement planning (MRP)
+- **Quality Control**: Product testing and quality assurance tracking
+- **Supply Chain**: Vendor management and procurement optimization
+- **Work-in-Progress**: Production stage inventory management
+
+### Specialized Applications
+- **Vintage & Classic Car Parts**: Rare parts inventory and sourcing
+- **Marine & Boat Supplies**: Watercraft parts and accessories management
+- **Motorcycle Parts**: Specialized motorcycle inventory and accessories
+- **RV & Camping Supplies**: Recreational vehicle parts and equipment
+- **Power Equipment**: Lawn equipment and power tool inventory management
+
+### Custom Solutions
+- **White-Label Opportunities**: Reseller and distributor partnerships
+- **API Integration**: Custom integrations with existing business systems
+- **Custom Reporting**: Business intelligence and custom analytics
+- **Mobile Solutions**: Field service and mobile inventory management
+- **IoT Integration**: Smart inventory and automated tracking solutions
 
 ## 🔒 Security Features
 
