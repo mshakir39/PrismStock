@@ -383,7 +383,7 @@ const Sidebar = ({
               return (
                 <Link
                   key={`${item.href}-${index}`} // Unique key combining href and index
-                  href={`${basePath}${item.href}`}
+                  href={item.href}
                   className={`sidebarItem flex touch-manipulation items-center rounded-lg p-3 transition-all duration-200 ${
                       item.active
                         ? 'active'

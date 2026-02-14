@@ -1,6 +1,9 @@
 'use server';
 import { executeOperation } from '@/app/libs/executeOperation';
 import { getEffectiveClientIdForServerAction } from '@/utils/auth';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
+import { ROUTES } from '@/constants/routes';
 
 interface DashboardStats {
   totalProducts: number;
@@ -156,44 +159,6 @@ export async function fetchDashboardAction() {
       success: false,
       error: error.message || 'Failed to fetch dashboard data'
     };
-  }
-}
-
-    // Get top selling products
-    const productSales = Array.isArray(sales)
-      ? sales.reduce((acc: any, sale: any) => {
-          const key = `${sale.brandName}-${sale.series}`;
-          if (!acc[key]) {
-            acc[key] = {
-              brandName: sale.brandName,
-              series: sale.series,
-              totalQuantity: 0,
-              totalRevenue: 0,
-            };
-          }
-          acc[key].totalQuantity += sale.quantity || 0;
-          acc[key].totalRevenue += sale.totalAmount || 0;
-          return acc;
-        }, {})
-      : {};
-
-    const topSellingProducts = Object.values(productSales)
-      .sort((a: any, b: any) => b.totalQuantity - a.totalQuantity)
-      .slice(0, 5);
-
-    return {
-      success: true,
-      data: {
-        totalSales,
-        totalCustomers,
-        totalStockItems,
-        totalInvoices,
-        recentSales: recentSales.length,
-        topSellingProducts,
-      },
-    };
-  } catch (error: any) {
-    return { success: false, error: error.message };
   }
 }
 

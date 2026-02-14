@@ -115,7 +115,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               onCollapseChange={(collapsed: boolean) =>
                 setIsSidebarCollapsed(collapsed)
               }
-              basePath={DASHBOARD_PREFIX}
+              basePath=""
             />
             <main
               className={`flex-1 overflow-x-hidden p-4 transition-all duration-300 ${
