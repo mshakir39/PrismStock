@@ -1,0 +1,42 @@
+/* Custom scrollbar styles to match theme */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #193043;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e3a5f;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #234466;
+}
+
+/* Firefox scrollbar styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #193043 #f1f5f9;
+}
+
+/* For specific sections */
+.dashboard-scrollbar::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+.dashboard-scrollbar::-webkit-scrollbar-thumb {
+  background: #193043;
+}
+
+.dashboard-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #1e3a5f;
+}

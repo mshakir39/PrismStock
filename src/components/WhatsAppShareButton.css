@@ -1,0 +1,32 @@
+/* WhatsApp Share Button Styles */
+.whatsapp-share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.whatsapp-share-button:hover {
+  transform: scale(1.1);
+  background: rgba(37, 211, 102, 0.1);
+}
+
+.whatsapp-share-button:active {
+  transform: scale(0.95);
+}
+
+.whatsapp-share-button:hover svg {
+  filter: drop-shadow(0 2px 4px rgba(37, 211, 102, 0.3));
+  transform: scale(1.05);
+}
+
+/* Focus styles for accessibility */
+.whatsapp-share-button:focus {
+  outline: 2px solid #25d366;
+  outline-offset: 2px;
+}
