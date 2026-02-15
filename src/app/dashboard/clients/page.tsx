@@ -2,6 +2,7 @@ import { getClients } from '@/actions/clientActions';
 import ClientLayout from '@/layouts/clientLayout';
 import { IClient } from '@/interfaces/client';
 import { Metadata } from 'next';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -29,5 +30,12 @@ async function getClientsData() {
 export default async function ClientsPage() {
   const clients = await getClientsData();
 
-  return <ClientLayout clients={clients as IClient[]} />;
+  return (
+    <ErrorBoundary
+      title="Client Data Error"
+      message="An unexpected error occurred while loading client information."
+    >
+      <ClientLayout clients={clients as IClient[]} />
+    </ErrorBoundary>
+  );
 }

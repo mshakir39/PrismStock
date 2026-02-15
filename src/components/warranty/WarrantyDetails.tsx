@@ -74,7 +74,7 @@ const WarrantyDetails: React.FC<WarrantyDetailsProps> = ({ warranty }) => {
                   {warranty.breadcrumb.map((crumb: any, index: number) => (
                     <span key={index}>
                       {crumb.name}
-                      {index < warranty.breadcrumb.length - 1 && ' > '}
+                      {index < (warranty.breadcrumb?.length || 0) - 1 && ' > '}
                     </span>
                   ))}
                 </span>

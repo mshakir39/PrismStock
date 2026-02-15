@@ -9,14 +9,12 @@ export const ROUTES = {
   DASHBOARD_PASSWORD: '/dashboard/dashboard-password',
 
   // Dashboard sub-routes
-  // BRANDS: '/dashboard/brands',
   CATEGORY: '/dashboard/categories',
   PRODUCTS: '/dashboard/products',
   CLIENTS: '/dashboard/clients',
   CUSTOMERS: '/dashboard/customers',
   INVOICES: '/dashboard/invoices',
   SALES: '/dashboard/sales',
-  // STOCK: '/dashboard/stock',
   USERS: '/dashboard/users',
   WARRANTY_CHECK: '/dashboard/warranty-check',
   PRICE_LIST: '/dashboard/priceList',
@@ -36,7 +34,6 @@ export const ROUTES = {
 export const ROUTE_GROUPS = {
   DASHBOARD_ROUTES: [
     ROUTES.DASHBOARD,
-    // ROUTES.BRANDS,
     ROUTES.CATEGORY,
     ROUTES.PRODUCTS,
     ROUTES.CLIENTS,
@@ -53,7 +50,6 @@ export const ROUTE_GROUPS = {
   PUBLIC_ROUTES: [ROUTES.LANDING, ROUTES.SIGNIN],
 
   ALLOWED_WHEN_LOCKED: [
-    // ROUTES.BRANDS,
     ROUTES.CATEGORY,
     ROUTES.PRODUCTS,
     ROUTES.CLIENTS,
@@ -109,16 +105,6 @@ export const NAVIGATION_ITEMS = [
     label: 'Products',
     icon: 'FaBox',
   },
-  // {
-  //   href: ROUTES.BRANDS,
-  //   label: 'Brands',
-  //   icon: 'FaTags',
-  // },
-  // {
-  //   href: ROUTES.STOCK,
-  //   label: 'Stock',
-  //   icon: 'FaCarBattery',
-  // },
   {
     href: ROUTES.INVOICES,
     label: 'Invoices',

@@ -195,6 +195,16 @@ export async function getSalesTrend(startDate: Date, endDate: Date) {
   }
 }
 
+export async function getStoreDetail() {
+  try {
+    const storeDetail = await executeOperation('storeDetail', 'findAll');
+    return storeDetail || [];
+  } catch (error: any) {
+    console.error('Error fetching store detail:', error);
+    return [];
+  }
+}
+
 export async function getInventoryByBrand() {
   try {
     const stock = await executeOperation('stock', 'findAll');

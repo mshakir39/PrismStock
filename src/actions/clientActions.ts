@@ -26,7 +26,7 @@ export async function createClient(data: ClientData) {
 export async function updateClient(id: string, data: Partial<ClientData>) {
   try {
     const result = await executeOperation('clients', 'updateOne', {
-      documentId: id,
+      id,
       ...data,
       updatedAt: new Date(),
     });
@@ -39,7 +39,7 @@ export async function updateClient(id: string, data: Partial<ClientData>) {
 export async function deleteClient(id: string) {
   try {
     const result = await executeOperation('clients', 'delete', {
-      documentId: id,
+      id,
     });
     return { success: true, data: result };
   } catch (error: any) {

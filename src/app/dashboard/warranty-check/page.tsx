@@ -4,7 +4,7 @@ import Input from '@/components/customInput';
 import Button from '@/components/button';
 import { searchWarranty } from '@/actions/warrantyActions';
 import WarrantyDetails from '@/components/warranty/WarrantyDetails';
-import WarrantyErrorBoundary from '@/components/warranty/WarrantyErrorBoundary';
+import ErrorBoundary from '@/components/ErrorBoundary';
 import { toast } from 'react-toastify';
 import { FaSearch, FaShieldAlt, FaInfoCircle, FaHistory } from 'react-icons/fa';
 
@@ -81,8 +81,10 @@ export default function WarrantyCheckPage() {
   };
 
   return (
-    // React 19: Error boundary for better error handling
-    <WarrantyErrorBoundary>
+    <ErrorBoundary
+      title="Warranty Data Error"
+      message="An unexpected error occurred while checking warranty information."
+    >
       <div className='min-h-screen bg-gray-50'>
         <div className='container mx-auto px-4 py-8'>
           <div className='max-w-4xl mx-auto'>
@@ -199,6 +201,6 @@ export default function WarrantyCheckPage() {
           </div>
         </div>
       </div>
-    </WarrantyErrorBoundary>
+    </ErrorBoundary>
   );
 }

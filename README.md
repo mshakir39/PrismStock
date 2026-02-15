@@ -22,6 +22,9 @@ Prism Stock is a comprehensive, multi-tenant SaaS inventory management system sp
 
 #### 💰 Sales & Invoicing
 - **Invoice Generation**: Professional invoice creation with customizable templates
+- **PDF Download**: Download invoices as professional PDF files
+- **WhatsApp Integration**: Send text invoices with live invoice links directly to customer WhatsApp numbers
+- **Thermal Printing**: Support for thermal printer invoice printing
 - **Sales Tracking**: Comprehensive sales analytics and reporting
 - **Customer Management**: Complete customer database with purchase history
 - **Payment Processing**: Payment status tracking and pending payment alerts

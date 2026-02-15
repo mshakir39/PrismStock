@@ -527,3 +527,28 @@ export async function toggleUserStatusAction(userId: string) {
     };
   }
 }
+
+// Simple getUsers function for pages that need all users
+export async function getUsers() {
+  try {
+    const db = await connectToMongoDB();
+    if (!db) {
+      throw new Error('Failed to connect to database');
+    }
+    const users = await db.collection('users').find({}).sort({ createdAt: -1 }).limit(1000).toArray();
+
+    // Serialize users
+    const serializedUsers = users.map((user: any) => ({
+      ...user,
+      _id: user._id?.toString(),
+      id: user._id?.toString(),
+      createdAt: user.createdAt?.toISOString(),
+      updatedAt: user.updatedAt?.toISOString(),
+    }));
+
+    return { success: true, data: serializedUsers };
+  } catch (error: any) {
+    console.error('Error fetching users:', error);
+    return { success: false, error: error.message };
+  }
+}

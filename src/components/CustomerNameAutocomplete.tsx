@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import { getAllInvoices } from '@/getData/getInvoices';
+import { getInvoices } from '@/actions/invoiceActions';
 
 interface CustomerInfo {
   name: string;
@@ -46,7 +46,8 @@ const CustomerNameAutocomplete: React.FC<CustomerNameAutocompleteProps> = ({
     const fetchCustomerInfo = async () => {
       try {
         setIsLoading(true);
-        const invoices = await getAllInvoices();
+        const result = await getInvoices();
+        const invoices = result.success ? result.data : [];
 
         // Ensure invoices is an array
         if (Array.isArray(invoices)) {

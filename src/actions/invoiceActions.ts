@@ -63,7 +63,7 @@ export async function createInvoice(data: InvoiceData, clientId?: string) {
 export async function updateInvoice(id: string, data: Partial<InvoiceData>) {
   try {
     const result = await executeOperation('invoices', 'updateOne', {
-      documentId: id,
+      id,
       ...data,
       updatedAt: new Date(),
     });
@@ -76,7 +76,7 @@ export async function updateInvoice(id: string, data: Partial<InvoiceData>) {
 export async function deleteInvoice(id: string) {
   try {
     const result = await executeOperation('invoices', 'delete', {
-      documentId: id,
+      id,
     });
     return { success: true, data: result };
   } catch (error: any) {
@@ -113,7 +113,7 @@ export async function getInvoices(clientId?: string) {
 export async function getInvoiceById(id: string) {
   try {
     const invoice = await executeOperation('invoices', 'findOne', {
-      documentId: id,
+      id,
     });
     return { success: true, data: invoice };
   } catch (error: any) {
@@ -154,7 +154,7 @@ export async function updateInvoicePaymentStatus(
 ) {
   try {
     const result = await executeOperation('invoices', 'updateOne', {
-      documentId: id,
+      id,
       paymentStatus,
       updatedAt: new Date(),
     });

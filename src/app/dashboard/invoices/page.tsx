@@ -1,8 +1,8 @@
 import InvoiceLayout from '@/layouts/invoicesLayout';
-import { getCategories } from '@/getData/getCategories';
+import { getCategories } from '@/actions/categoryActions';
 import { getInvoices } from '@/actions/invoiceActions';
 import { fetchProductsAction } from '@/actions/productActions';
-import InvoiceErrorBoundary from '@/components/invoices/InvoiceErrorBoundary';
+import ErrorBoundary from '@/components/ErrorBoundary';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -37,8 +37,14 @@ async function getInvoicesData() {
 
 async function getCategoriesData() {
   try {
-    const categoriesResult = await getCategories();
-    return Array.isArray(categoriesResult) ? categoriesResult : [];
+    const result = await getCategories();
+
+    if (!result.success || !Array.isArray(result.data)) {
+      console.error('Invalid categories data format or fetch failed');
+      return [];
+    }
+
+    return result.data;
   } catch (error) {
     console.error('Error loading categories:', error);
     return [];
@@ -70,12 +76,15 @@ export default async function Invoices() {
   ]);
 
   return (
-    <InvoiceErrorBoundary>
+    <ErrorBoundary
+      title="Invoice Data Error"
+      message="An unexpected error occurred while loading invoice information."
+    >
       <InvoiceLayout
         categories={categories}
         invoices={invoices}
         products={products}
       />
-    </InvoiceErrorBoundary>
+    </ErrorBoundary>
   );
 }

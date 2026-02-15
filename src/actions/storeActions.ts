@@ -43,7 +43,7 @@ export async function updateStoreDetail(
 ) {
   try {
     const result = await executeOperation('storeDetail', 'updateOne', {
-      documentId: id,
+      id,
       ...data,
       updatedAt: new Date(),
     });

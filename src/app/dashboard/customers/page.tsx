@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import CustomersLayout from '@/layouts/customersLayout';
-import { getCustomers } from '@/getData/getCustomers';
-import { getCategories } from '@/getData/getCategories';
-import CustomersErrorBoundary from '@/components/customers/CustomersErrorBoundary';
+import { getCustomers } from '@/actions/customerActions';
+import { getCategories } from '@/actions/categoryActions';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 export const dynamic = 'force-dynamic'; // React 19: Better for real-time data
 export const revalidate = 0; // React 19: No caching for latest customer data
@@ -15,14 +15,14 @@ export const metadata: Metadata = {
 // React 19: Enhanced server component with better error handling
 async function getCustomersData() {
   try {
-    const customers = await getCustomers();
+    const result = await getCustomers();
 
-    if (!Array.isArray(customers)) {
-      console.error('Invalid customers data format');
+    if (!result.success || !Array.isArray(result.data)) {
+      console.error('Invalid customers data format or fetch failed');
       return [];
     }
 
-    return customers;
+    return result.data;
   } catch (error) {
     console.error('Error loading customers:', error);
     return [];
@@ -31,14 +31,14 @@ async function getCustomersData() {
 
 async function getCategoriesData() {
   try {
-    const categories = await getCategories();
+    const result = await getCategories();
 
-    if (!Array.isArray(categories)) {
-      console.error('Invalid categories data format');
+    if (!result.success || !Array.isArray(result.data)) {
+      console.error('Invalid categories data format or fetch failed');
       return [];
     }
 
-    return categories;
+    return result.data;
   } catch (error) {
     console.error('Error loading categories:', error);
     return [];
@@ -52,13 +52,16 @@ export default async function CustomersPage() {
   ]);
 
   return (
-    <CustomersErrorBoundary>
+    <ErrorBoundary
+      title="Customer Data Error"
+      message="An unexpected error occurred while loading customer information."
+    >
       <CustomersLayout
         customers={customers}
         categories={categories}
         // React 19: Pass server-side timestamp for cache invalidation
         serverTimestamp={Date.now()}
       />
-    </CustomersErrorBoundary>
+    </ErrorBoundary>
   );
 }

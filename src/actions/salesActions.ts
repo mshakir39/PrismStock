@@ -28,7 +28,7 @@ export async function createSale(data: SalesData) {
 export async function updateSale(id: string, data: Partial<SalesData>) {
   try {
     const result = await executeOperation('sales', 'updateOne', {
-      documentId: id,
+      id,
       ...data,
       updatedAt: new Date(),
     });
@@ -46,7 +46,7 @@ export async function deleteSale(id: string) {
 
     // React 19: Enhanced with better validation
     const result = await executeOperation('sales', 'delete', {
-      documentId: id,
+      id,
     });
 
     if (!result) {

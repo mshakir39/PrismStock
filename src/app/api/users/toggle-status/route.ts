@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       document: { _id: new ObjectId(session.user.id) }
     });
 
-    if (!currentUser || currentUser.role !== 'super_admin') {
+    if (!currentUser || !(currentUser as any).role || (currentUser as any).role !== 'super_admin') {
       return NextResponse.json({ success: false, error: 'Super admin access required' }, { status: 403 });
     }
 
@@ -37,12 +37,12 @@ export async function POST(request: NextRequest) {
     }
 
     // Toggle the user's active status
-    const newStatus = !user.isActive;
+    const newStatus = !(user as any).isActive;
 
     // Update user status
     const updateResult = await executeOperation('users', 'updateOne', {
       document: {
-        documentId: userId,
+        id: userId,
         isActive: newStatus,
         statusChangedBy: adminId,
         statusChangedAt: new Date(),
@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
       success: true,
       message: `User ${newStatus ? 'unblocked' : 'blocked'} successfully`,
       newStatus: newStatus,
-      userEmail: user.email
+      userEmail: (user as any).email
     });
 
   } catch (error) {

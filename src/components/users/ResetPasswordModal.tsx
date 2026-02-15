@@ -24,7 +24,7 @@ const ResetPasswordModal: React.FC<ResetPasswordModalProps> = ({ isOpen, selecte
         <div className="text-sm text-gray-600 mb-4">
           <p>Are you sure you want to reset the password for <strong>{selectedUser.name}</strong> ({selectedUser.email})?</p>
           <p className="mt-2 text-yellow-600">
-            ⚠️ This will change the user's password immediately.
+            ⚠️ This will change the user&apos;s password immediately.
           </p>
         </div>
         <div className="mb-4">

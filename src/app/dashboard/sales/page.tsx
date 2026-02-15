@@ -1,6 +1,6 @@
 import { getSales } from '@/actions/salesActions';
 import SalesLayout from '@/layouts/salesLayout';
-import SalesErrorBoundary from '@/components/sales/SalesErrorBoundary';
+import ErrorBoundary from '@/components/ErrorBoundary';
 import { Metadata } from 'next';
 
 export const dynamic = 'force-dynamic'; // React 19: Better for real-time data
@@ -37,13 +37,15 @@ export default async function SalesPage() {
   const sales = await getSalesData();
 
   return (
-    // React 19: Error boundary for better error handling
-    <SalesErrorBoundary>
+    <ErrorBoundary
+      title="Sales Data Error"
+      message="An unexpected error occurred while loading sales information."
+    >
       <SalesLayout
         sales={sales as any[]}
         // React 19: Pass server-side timestamp for cache invalidation
         serverTimestamp={Date.now()}
       />
-    </SalesErrorBoundary>
+    </ErrorBoundary>
   );
 }

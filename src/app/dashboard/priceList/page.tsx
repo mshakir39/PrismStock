@@ -8,6 +8,7 @@ import Button from '@/components/button';
 import Modal from '@/components/modal';
 import Input from '@/components/customInput';
 import { toast } from 'react-toastify';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 // AG Grid modules
 const modules = [AllCommunityModule];
@@ -239,303 +240,308 @@ export default function PriceListPage() {
   }
 
   return (
-    <AgGridProvider modules={modules}>
-      <div className="p-6">
-        <div className="flex justify-between items-center mb-6">
-          <div>
-            <h1 className="text-3xl font-bold">Price List Management</h1>
-            <p className="text-gray-600">Manage your product pricing and profit margins</p>
-          </div>
-          {priceItems.length > 0 && (
-            <Button
-              variant="fill"
-              text="Add Price Item"
-              onClick={() => {
-                setEditingItem(null);
-                resetForm();
-                setShowCreateDialog(true);
-              }}
-            />
-          )}
-        </div>
-
-        {priceItems.length === 0 ? (
-          <div className="px-6 py-16 text-center">
-            <div className="max-w-md mx-auto">
-              {/* Gradient Background Circle */}
-              <div className="relative mb-8">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#f0f4f8] to-[#e1e7ed] rounded-full p-8"></div>
-                <div className="relative bg-white rounded-full p-12 shadow-lg">
-                  <svg className="mx-auto h-20 w-20 text-[#193043]" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Title */}
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                No Price Items Yet
-              </h3>
-
-              {/* Description */}
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                Start building your price list by adding your first product pricing. Set competitive prices and track profit margins.
-              </p>
-
-              {/* Call to Action Button */}
-              <div className="flex justify-center">
-                <Button
-                  text="Create Your First Price Item"
-                  onClick={() => {
-                    setEditingItem(null);
-                    resetForm();
-                    setShowCreateDialog(true);
-                  }}
-                  variant="fill"
-                  className="bg-[#193043] hover:bg-[#2a4156] text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-                />
-              </div>
-
-              {/* Additional Tips */}
-              <div className="mt-8 pt-6 border-t border-gray-200">
-                <p className="text-sm text-gray-500 mb-2">💡 Pro Tips:</p>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Set competitive pricing based on market research</li>
-                  <li>• Calculate profit margins to ensure profitability</li>
-                  <li>• Use SKUs for efficient inventory tracking</li>
-                </ul>
-              </div>
+    <ErrorBoundary
+      title="Price List Data Error"
+      message="An unexpected error occurred while loading price list information."
+    >
+      <AgGridProvider modules={modules}>
+        <div className="p-6">
+          <div className="flex justify-between items-center mb-6">
+            <div>
+              <h1 className="text-3xl font-bold">Price List Management</h1>
+              <p className="text-gray-600">Manage your product pricing and profit margins</p>
             </div>
+            {priceItems.length > 0 && (
+              <Button
+                variant="fill"
+                text="Add Price Item"
+                onClick={() => {
+                  setEditingItem(null);
+                  resetForm();
+                  setShowCreateDialog(true);
+                }}
+              />
+            )}
           </div>
-        ) : (
-          <>
-            <div className="bg-white rounded-lg shadow overflow-hidden">
-              <div className="px-6 py-4 border-b border-gray-200">
-                <div className="flex justify-between items-center">
-                  <h2 className="text-lg font-medium text-gray-900">
-                    Price Items ({priceItems.length})
-                  </h2>
+
+          {priceItems.length === 0 ? (
+            <div className="px-6 py-16 text-center">
+              <div className="max-w-md mx-auto">
+                {/* Gradient Background Circle */}
+                <div className="relative mb-8">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#f0f4f8] to-[#e1e7ed] rounded-full p-8"></div>
+                  <div className="relative bg-white rounded-full p-12 shadow-lg">
+                    <svg className="mx-auto h-20 w-20 text-[#193043]" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  No Price Items Yet
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  Start building your price list by adding your first product pricing. Set competitive prices and track profit margins.
+                </p>
+
+                {/* Call to Action Button */}
+                <div className="flex justify-center">
                   <Button
-                    variant="fill"
-                    text="Add Price Item"
+                    text="Create Your First Price Item"
                     onClick={() => {
                       setEditingItem(null);
                       resetForm();
                       setShowCreateDialog(true);
                     }}
+                    variant="fill"
+                    className="bg-[#193043] hover:bg-[#2a4156] text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                  />
+                </div>
+
+                {/* Additional Tips */}
+                <div className="mt-8 pt-6 border-t border-gray-200">
+                  <p className="text-sm text-gray-500 mb-2">💡 Pro Tips:</p>
+                  <ul className="text-sm text-gray-600 space-y-1">
+                    <li>• Set competitive pricing based on market research</li>
+                    <li>• Calculate profit margins to ensure profitability</li>
+                    <li>• Use SKUs for efficient inventory tracking</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className="bg-white rounded-lg shadow overflow-hidden">
+                <div className="px-6 py-4 border-b border-gray-200">
+                  <div className="flex justify-between items-center">
+                    <h2 className="text-lg font-medium text-gray-900">
+                      Price Items ({priceItems.length})
+                    </h2>
+                    <Button
+                      variant="fill"
+                      text="Add Price Item"
+                      onClick={() => {
+                        setEditingItem(null);
+                        resetForm();
+                        setShowCreateDialog(true);
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div className="ag-theme-alpine h-full">
+                  <AgGridReact
+                    rowData={priceItems}
+                    columnDefs={[
+                      {
+                        headerName: 'Product Name',
+                        field: 'productName',
+                        cellRenderer: (params: any) => (
+                          <div className="font-medium text-gray-900">{params.value || ''}</div>
+                        ),
+                        sortable: true,
+                        filter: true,
+                        resizable: true,
+                        flex: 1,
+                        minWidth: 180,
+                      },
+                      {
+                        headerName: 'SKU',
+                        field: 'sku',
+                        cellRenderer: (params: any) => (
+                          <div className="text-gray-500">{params.value || '-'}</div>
+                        ),
+                        sortable: true,
+                        filter: true,
+                        resizable: true,
+                        flex: 1,
+                        minWidth: 120,
+                      },
+                      {
+                        headerName: 'Category',
+                        field: 'category',
+                        cellRenderer: (params: any) => (
+                          <div className="text-gray-500">{params.value || ''}</div>
+                        ),
+                        sortable: true,
+                        filter: true,
+                        resizable: true,
+                        flex: 1,
+                        minWidth: 120,
+                      },
+                      {
+                        headerName: 'Selling Price',
+                        field: 'price',
+                        cellRenderer: (params: any) => (
+                          <div className="font-medium text-gray-900">
+                            Rs {params.value?.toLocaleString() || 0}
+                          </div>
+                        ),
+                        sortable: true,
+                        filter: 'agNumberColumnFilter',
+                        resizable: true,
+                        flex: 1,
+                        minWidth: 120,
+                      },
+                      {
+                        headerName: 'Cost Price',
+                        field: 'cost',
+                        cellRenderer: (params: any) => (
+                          <div className="text-gray-500">
+                            {params.value ? `Rs ${params.value.toLocaleString()}` : '-'}
+                          </div>
+                        ),
+                        sortable: true,
+                        filter: 'agNumberColumnFilter',
+                        resizable: true,
+                        flex: 1,
+                        minWidth: 110,
+                      },
+                      {
+                        headerName: 'Margin',
+                        field: 'margin',
+                        cellRenderer: (params: any) => (
+                          <div className={`font-medium ${params.value >= 20 ? 'text-green-600' : params.value >= 10 ? 'text-yellow-600' : 'text-red-600'}`}>
+                            {params.value ? `${params.value.toFixed(1)}%` : '-'}
+                          </div>
+                        ),
+                        sortable: true,
+                        filter: 'agNumberColumnFilter',
+                        resizable: true,
+                        flex: 1,
+                        minWidth: 100,
+                      },
+                      {
+                        headerName: 'Status',
+                        field: 'isActive',
+                        cellRenderer: (params: any) => (
+                          <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                            params.value
+                              ? 'bg-green-100 text-green-800'
+                              : 'bg-red-100 text-red-800'
+                          }`}>
+                            {params.value ? 'Active' : 'Inactive'}
+                          </span>
+                        ),
+                        sortable: true,
+                        filter: true,
+                        resizable: true,
+                        flex: 1,
+                        minWidth: 100,
+                      },
+                      {
+                        cellRenderer: (params: any) => <SimpleActionMenu item={params.data} />,
+                        headerName: 'Actions',
+                        sortable: false,
+                        filter: false,
+                        resizable: true,
+                        flex: 1,
+                        minWidth: 100,
+                      },
+                    ]}
+                    defaultColDef={{
+                      flex: 1,
+                      minWidth: 100,
+                      resizable: true,
+                    }}
+                    pagination={true}
+                    paginationPageSize={10}
+                    domLayout="autoHeight"
+                    animateRows={true}
+                    enableRangeSelection={true}
+                    rowSelection="single"
+                    suppressCellFocus={true}
                   />
                 </div>
               </div>
+            </>
+          )}
 
-              <div className="ag-theme-alpine h-full">
-                <AgGridReact
-                  rowData={priceItems}
-                  columnDefs={[
-                    {
-                      headerName: 'Product Name',
-                      field: 'productName',
-                      cellRenderer: (params: any) => (
-                        <div className="font-medium text-gray-900">{params.value || ''}</div>
-                      ),
-                      sortable: true,
-                      filter: true,
-                      resizable: true,
-                      flex: 1,
-                      minWidth: 180,
-                    },
-                    {
-                      headerName: 'SKU',
-                      field: 'sku',
-                      cellRenderer: (params: any) => (
-                        <div className="text-gray-500">{params.value || '-'}</div>
-                      ),
-                      sortable: true,
-                      filter: true,
-                      resizable: true,
-                      flex: 1,
-                      minWidth: 120,
-                    },
-                    {
-                      headerName: 'Category',
-                      field: 'category',
-                      cellRenderer: (params: any) => (
-                        <div className="text-gray-500">{params.value || ''}</div>
-                      ),
-                      sortable: true,
-                      filter: true,
-                      resizable: true,
-                      flex: 1,
-                      minWidth: 120,
-                    },
-                    {
-                      headerName: 'Selling Price',
-                      field: 'price',
-                      cellRenderer: (params: any) => (
-                        <div className="font-medium text-gray-900">
-                          Rs {params.value?.toLocaleString() || 0}
-                        </div>
-                      ),
-                      sortable: true,
-                      filter: 'agNumberColumnFilter',
-                      resizable: true,
-                      flex: 1,
-                      minWidth: 120,
-                    },
-                    {
-                      headerName: 'Cost Price',
-                      field: 'cost',
-                      cellRenderer: (params: any) => (
-                        <div className="text-gray-500">
-                          {params.value ? `Rs ${params.value.toLocaleString()}` : '-'}
-                        </div>
-                      ),
-                      sortable: true,
-                      filter: 'agNumberColumnFilter',
-                      resizable: true,
-                      flex: 1,
-                      minWidth: 110,
-                    },
-                    {
-                      headerName: 'Margin',
-                      field: 'margin',
-                      cellRenderer: (params: any) => (
-                        <div className={`font-medium ${params.value >= 20 ? 'text-green-600' : params.value >= 10 ? 'text-yellow-600' : 'text-red-600'}`}>
-                          {params.value ? `${params.value.toFixed(1)}%` : '-'}
-                        </div>
-                      ),
-                      sortable: true,
-                      filter: 'agNumberColumnFilter',
-                      resizable: true,
-                      flex: 1,
-                      minWidth: 100,
-                    },
-                    {
-                      headerName: 'Status',
-                      field: 'isActive',
-                      cellRenderer: (params: any) => (
-                        <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                          params.value
-                            ? 'bg-green-100 text-green-800'
-                            : 'bg-red-100 text-red-800'
-                        }`}>
-                          {params.value ? 'Active' : 'Inactive'}
-                        </span>
-                      ),
-                      sortable: true,
-                      filter: true,
-                      resizable: true,
-                      flex: 1,
-                      minWidth: 100,
-                    },
-                    {
-                      cellRenderer: (params: any) => <SimpleActionMenu item={params.data} />,
-                      headerName: 'Actions',
-                      sortable: false,
-                      filter: false,
-                      resizable: true,
-                      flex: 1,
-                      minWidth: 100,
-                    },
-                  ]}
-                  defaultColDef={{
-                    flex: 1,
-                    minWidth: 100,
-                    resizable: true,
-                  }}
-                  pagination={true}
-                  paginationPageSize={10}
-                  domLayout="autoHeight"
-                  animateRows={true}
-                  enableRangeSelection={true}
-                  rowSelection="single"
-                  suppressCellFocus={true}
-                />
-              </div>
-            </div>
-          </>
-        )}
-
-        {/* Create/Edit Modal */}
-        <Modal
-          isOpen={showCreateDialog}
-          onClose={() => {
-            setShowCreateDialog(false);
-            setEditingItem(null);
-            resetForm();
-          }}
-          title={editingItem ? 'Edit Price Item' : 'Create New Price Item'}
-          size="medium"
-        >
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <Input
-              type="text"
-              label="Product Name"
-              value={formData.productName}
-              onChange={(e) => setFormData({ ...formData, productName: e.target.value })}
-              required
-            />
-            <Input
-              type="text"
-              label="SKU (Optional)"
-              value={formData.sku}
-              onChange={(e) => setFormData({ ...formData, sku: e.target.value })}
-            />
-            <Input
-              type="text"
-              label="Category"
-              value={formData.category}
-              onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-              required
-            />
-            <div className="grid grid-cols-2 gap-4">
+          {/* Create/Edit Modal */}
+          <Modal
+            isOpen={showCreateDialog}
+            onClose={() => {
+              setShowCreateDialog(false);
+              setEditingItem(null);
+              resetForm();
+            }}
+            title={editingItem ? 'Edit Price Item' : 'Create New Price Item'}
+            size="medium"
+          >
+            <form onSubmit={handleSubmit} className="space-y-4">
               <Input
-                type="number"
-                label="Selling Price (Rs)"
-                step="0.01"
-                value={formData.price}
-                onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                type="text"
+                label="Product Name"
+                value={formData.productName}
+                onChange={(e) => setFormData({ ...formData, productName: e.target.value })}
                 required
               />
               <Input
-                type="number"
-                label="Cost Price (Rs)"
-                step="0.01"
-                value={formData.cost}
-                onChange={(e) => setFormData({ ...formData, cost: e.target.value })}
+                type="text"
+                label="SKU (Optional)"
+                value={formData.sku}
+                onChange={(e) => setFormData({ ...formData, sku: e.target.value })}
               />
-            </div>
-            <div className="flex items-center">
-              <input
-                id="isActive"
-                type="checkbox"
-                checked={formData.isActive}
-                onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+              <Input
+                type="text"
+                label="Category"
+                value={formData.category}
+                onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                required
               />
-              <label htmlFor="isActive" className="ml-2 block text-sm text-gray-900">
-                Active
-              </label>
-            </div>
-            <div className="flex justify-end gap-3 pt-4">
-              <Button
-                type="button"
-                variant="outline"
-                text="Cancel"
-                onClick={() => {
-                  setShowCreateDialog(false);
-                  setEditingItem(null);
-                  resetForm();
-                }}
-              />
-              <Button
-                type="submit"
-                variant="fill"
-                text={editingItem ? 'Update Item' : 'Create Item'}
-              />
-            </div>
-          </form>
-        </Modal>
-      </div>
-    </AgGridProvider>
+              <div className="grid grid-cols-2 gap-4">
+                <Input
+                  type="number"
+                  label="Selling Price (Rs)"
+                  step="0.01"
+                  value={formData.price}
+                  onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                  required
+                />
+                <Input
+                  type="number"
+                  label="Cost Price (Rs)"
+                  step="0.01"
+                  value={formData.cost}
+                  onChange={(e) => setFormData({ ...formData, cost: e.target.value })}
+                />
+              </div>
+              <div className="flex items-center">
+                <input
+                  id="isActive"
+                  type="checkbox"
+                  checked={formData.isActive}
+                  onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })}
+                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                />
+                <label htmlFor="isActive" className="ml-2 block text-sm text-gray-900">
+                  Active
+                </label>
+              </div>
+              <div className="flex justify-end gap-3 pt-4">
+                <Button
+                  type="button"
+                  variant="outline"
+                  text="Cancel"
+                  onClick={() => {
+                    setShowCreateDialog(false);
+                    setEditingItem(null);
+                    resetForm();
+                  }}
+                />
+                <Button
+                  type="submit"
+                  variant="fill"
+                  text={editingItem ? 'Update Item' : 'Create Item'}
+                />
+              </div>
+            </form>
+          </Modal>
+        </div>
+      </AgGridProvider>
+    </ErrorBoundary>
   );
 }

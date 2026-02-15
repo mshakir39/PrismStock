@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Input from '@/components/customInput';
 import Dropdown from '@/components/dropdown';
 import CustomerNameAutocomplete from '@/components/CustomerNameAutocomplete';
-import { getAllInvoices } from '@/getData/getInvoices';
+import { getInvoices } from '@/actions/invoiceActions';
 
 interface CustomerSectionProps {
   invoiceData: any;
@@ -23,7 +23,8 @@ const CustomerSection: React.FC<CustomerSectionProps> = ({
   useEffect(() => {
     const fetchInvoiceData = async () => {
       try {
-        const invoices = await getAllInvoices();
+        const result = await getInvoices();
+        const invoices = result.success ? result.data : [];
         if (Array.isArray(invoices)) {
           setAllInvoices(invoices);
         } else {

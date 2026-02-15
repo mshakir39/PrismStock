@@ -17,9 +17,17 @@ import { Product } from '@/interfaces/product';
 import { useProductHandlers } from '@/handlers/productHandlers';
 
 import LoadingSpinner from '@/components/LoadingSpinner';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 export default function ProductsPage() {
-  return <ProductsPageContent />;
+  return (
+    <ErrorBoundary
+      title="Product Data Error"
+      message="An unexpected error occurred while loading product information."
+    >
+      <ProductsPageContent />
+    </ErrorBoundary>
+  );
 }
 
 function ProductsPageContent() {

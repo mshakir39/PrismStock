@@ -16,7 +16,7 @@ import Button from '@/components/button';
 import Input from '@/components/customInput';
 import { POST } from '@/utils/api';
 import { toast } from 'react-toastify';
-import { getStoreDetail } from '@/getData/getStoreDetail';
+import { getStoreDetail } from '@/actions/dashboardActions';
 import { signOut } from 'next-auth/react';
 import Cookies from 'js-cookie';
 import { useAuth } from '@/hooks/useAuth';
@@ -208,7 +208,6 @@ const Sidebar = ({
       '/',
       '/category',
       '/sales',
-      '/stock',
       '/customers',
       '/brands',
       '/invoices',

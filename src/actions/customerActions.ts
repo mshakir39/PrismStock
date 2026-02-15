@@ -33,7 +33,7 @@ export async function updateCustomer(id: string, data: Partial<CustomerData>) {
     const selectedClientCookie = cookieStore.get('selectedClient')?.value;
     
     const result = await executeOperation('customers', 'updateOne', {
-      documentId: id,
+      id,
       ...data,
       clientId: selectedClientCookie, // Add clientId for multi-tenancy
     });
@@ -54,7 +54,7 @@ export async function deleteCustomer(id: string) {
     const selectedClientCookie = cookieStore.get('selectedClient')?.value;
 
     const result = await executeOperation('customers', 'delete', {
-      documentId: id,
+      id,
       clientId: selectedClientCookie, // Add clientId for multi-tenancy
     });
 

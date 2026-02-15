@@ -256,7 +256,7 @@ export async function executeOperation(
           }
 
         case 'delete':
-          const deleteId = new ObjectId(document.documentId);
+          const deleteId = new ObjectId(document.id);
           return await db
             .collection(collectionName)
             .deleteOne({ _id: deleteId });
@@ -296,12 +296,12 @@ export async function executeOperation(
           return found !== null;
 
         case 'findOne':
-          const doc = await db.collection(collectionName).findOne(document);
+          const doc = await db.collection(collectionName).findOne({ _id: new ObjectId(document.id) });
           if (doc) {
             const serializedDocument: Record<string, any> = {};
             for (const key in doc) {
               if (key === '_id') {
-                serializedDocument['documentId'] = doc[key].toString();
+                serializedDocument['id'] = doc[key].toString();
               } else {
                 serializedDocument[key] = doc[key];
               }
