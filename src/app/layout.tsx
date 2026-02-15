@@ -17,13 +17,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title:
-    'Prism Stock - Premium Batteries & Power Solutions in Dera Ghazi Khan',
+  title: 'Prism Stock - Multi-Tenant SaaS Inventory Management System',
   description:
-    'Authorized dealer of Osaka, AGS, Exide, Phoenix & Daewoo batteries for cars, UPS systems, and solar applications. Expert battery installation services in Dera Ghazi Khan. Featuring Fujika advanced dry battery technology with extra backup power and exceptional long life.',
+    'Comprehensive multi-tenant SaaS inventory management system for businesses. Manage products, sales, customers, and warranties across multiple client organizations with advanced analytics and reporting.',
   keywords:
-    'batteries Dera Ghazi Khan, Osaka batteries, AGS batteries, Exide batteries, Phoenix batteries, Daewoo batteries, Fujika batteries, UPS systems, solar solutions, power solutions, battery installation, Pakistan',
-  authors: [{ name: 'Prism Stock' }],
+    'inventory management, SaaS, multi-tenant, product management, sales tracking, customer management, warranty management, analytics, reporting, business software',
+  authors: [{ name: 'Prism Stock Team' }],
   creator: 'Prism Stock',
   publisher: 'Prism Stock',
   robots: 'index, follow',
@@ -31,43 +30,43 @@ export const metadata: Metadata = {
     canonical: 'https://prismstock.com/',
   },
   openGraph: {
-    title: 'Prism Stock - Premium Batteries & Power Solutions in Dera Ghazi Khan',
+    title: 'Prism Stock - Multi-Tenant SaaS Inventory Management System',
     description:
-      'Authorized dealer of Osaka, AGS, Exide, Fujika, Phoenix & Daewoo batteries for cars, UPS systems, and solar applications. Expert battery installation services in Dera Ghazi Khan. Featuring Fujika advanced dry battery technology with extra backup power and exceptional long life.',
+      'Powerful inventory management SaaS platform with multi-tenant architecture. Streamline your business operations with advanced inventory tracking, sales analytics, and customer management.',
     url: 'https://prismstock.com/',
     siteName: 'Prism Stock',
-    locale: 'en_PK',
+    locale: 'en_US',
     type: 'website',
     images: [
       {
         url: 'https://res.cloudinary.com/divdl3sad/image/upload/v1769437584/Gemini_Generated_Image_oz2asxoz2asxoz2a_hzeyaj.png',
         width: 1200,
         height: 630,
-        alt: 'Prism Stock - Premium Batteries & Power Solutions in Dera Ghazi Khan',
+        alt: 'Prism Stock - Multi-Tenant SaaS Inventory Management System',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Prism Stock - Premium Batteries & Power Solutions in Dera Ghazi Khan',
+    title: 'Prism Stock - Multi-Tenant SaaS Inventory Management System',
     description:
-      'Authorized dealer of Osaka, AGS, Exide, Fujika, Phoenix & Daewoo batteries for cars, UPS systems, and solar applications. Expert battery installation services in Dera Ghazi Khan. Featuring Fujika advanced dry battery technology with extra backup power and exceptional long life.',
+      'Powerful inventory management SaaS platform with multi-tenant architecture. Streamline your business operations with advanced inventory tracking, sales analytics, and customer management.',
     images: [
       {
         url: 'https://res.cloudinary.com/divdl3sad/image/upload/v1769437584/Gemini_Generated_Image_oz2asxoz2asxoz2a_hzeyaj.png',
         width: 1200,
         height: 630,
-        alt: 'Prism Stock - Premium Batteries & Power Solutions in Dera Ghazi Khan',
+        alt: 'Prism Stock - Multi-Tenant SaaS Inventory Management System',
       },
     ],
   },
   icons: {
     icon: {
-      url: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs><filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="2" stdDeviation="4" floodOpacity="0.15"/></filter></defs><rect x="0" y="0" width="48" height="48" rx="12" fill="%232563EB" filter="url(%23shadow)"/><path d="M26 12L18 26H24L22 36L30 22H24L26 12Z" fill="white" stroke="white" stroke-width="0.5" stroke-linejoin="round"/></svg>',
+      url: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs><filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="2" stdDeviation="4" floodOpacity="0.15"/></filter></defs><rect x="0" y="0" width="48" height="48" rx="12" fill="%23193043" filter="url(%23shadow)"/><polygon points="8,38 20,8 32,38" fill="white"/><polygon points="32,38 40,32 26,2 20,8" fill="white" opacity="0.8"/><polygon points="8,38 32,38 40,32 14,32" fill="white" opacity="0.6"/></svg>',
       type: 'image/svg+xml',
     },
     shortcut: {
-      url: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs><filter id="betterShadow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur in="SourceGraphic" stdDeviation="4" floodOpacity="0.2"/><feMergeNode in="SourceGraphic" in2="BackgroundImageFix"/><feMergeNode in="SourceGraphic" in3="BackgroundImageFix"/></filter></defs><rect x="0" y="0" width="48" height="48" rx="12" fill="%232563EB" filter="url(%23betterShadow)"/><path d="M26 12L18 26H24L22 36L30 22H24L26 12Z" fill="white" stroke="white" stroke-width="0.5" stroke-linejoin="round"/></svg>',
+      url: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs><filter id="betterShadow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur in="SourceGraphic" stdDeviation="4" floodOpacity="0.2"/><feMergeNode in="SourceGraphic" in2="BackgroundImageFix"/><feMergeNode in="SourceGraphic" in3="BackgroundImageFix"/></filter></defs><rect x="0" y="0" width="48" height="48" rx="12" fill="%23193043" filter="url(%23betterShadow)"/><polygon points="8,38 20,8 32,38" fill="white"/><polygon points="32,38 40,32 26,2 20,8" fill="white" opacity="0.8"/><polygon points="8,38 32,38 40,32 14,32" fill="white" opacity="0.6"/></svg>',
       type: 'image/svg+xml',
     },
     apple: [
